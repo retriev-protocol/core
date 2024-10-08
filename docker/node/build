@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Removing previous folders
+rm -rf provider-cli/rpp
+rm -rf referee-cli/rpp
+rm ./provider-cli/.env
+rm ./referee-cli/.env
+
+# Building docker
+cd docker && docker build -t rpp .
+rm -rf .ipfs
+cd ..
+
+# Running docker
+docker run --restart=unless-stopped -d --name=rpp -p 8000:8000 -p 4001:4001 -p 4001:4001/udp -p 127.0.0.1:8080:8080 -p 127.0.0.1:9000:9000 -p 127.0.0.1:5001:5001 -v ${PWD}:/data rpp
+docker exec rpp bash docker/node/init

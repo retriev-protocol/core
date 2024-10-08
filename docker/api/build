@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd api && docker build -t retr-api .
+
+docker run --restart=unless-stopped -d --name=retr-api -p 3000:3000 retr-api
+docker stop retr-api

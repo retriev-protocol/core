@@ -1,0 +1,40 @@
+{
+    "name": "retriev-referee-cli",
+    "version": "0.1.0",
+    "description": "",
+    "main": "src/referee.js",
+    "bin": "src/referee.js",
+    "scripts": {
+        "dev": "nodemon src/referee.js --debug --local --name=refereedev --port=9000 --daemon",
+        "start-dev": "node src/referee.js --debug --local --name=refereedev --port=9000 --daemon",
+        "dev1": "nodemon src/referee.js --debug --local --name=referee2 --port=9001 --daemon",
+        "dev2": "nodemon src/referee.js --debug --local --name=referee3 --port=9002 --daemon",
+        "dev3": "nodemon src/referee.js --debug --local --name=referee3 --port=9003 --daemon",
+        "dev4": "nodemon src/referee.js --debug --local --name=referee4 --port=9004 --daemon",
+        "dev5": "nodemon src/referee.js --debug --local --name=referee5 --port=9005 --daemon",
+        "test:identity": "node src/referee.js --debug --name=refereedev --port=9000 getidentity",
+        "test:broadcast": "node src/referee.js --debug --name=refereedev --port=9000 sendmessage",
+        "test:deals": "node src/referee.js --debug --name=refereedev --port=9000 deals",
+        "test:withdraw": "node src/referee.js --debug --name=refereedev --port=9000 withdraw",
+        "test:getbalance": "node src/provider.js --debug --name=providerdev --9000=8001 getbalance",
+        "compile": "pkg . --out-path bin",
+        "start": "./bin/rpp-referee-linux --debug --daemon"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.24.0",
+        "body-parser": "^1.19.0",
+        "dotenv": "^10.0.0",
+        "ethers": "^5.6.2",
+        "express": "^4.17.1",
+        "form-data": "^4.0.0",
+        "minimist": "^1.2.6",
+        "public-ip": "^4.0.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.14",
+        "pkg": "^5.6.0"
+    }
+}

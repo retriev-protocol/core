@@ -1,0 +1,42 @@
+{
+    "name": "retriev-provider-cli",
+    "version": "0.1.0",
+    "description": "",
+    "main": "src/provider.js",
+    "bin": "src/provider.js",
+    "scripts": {
+        "dev": "nodemon src/provider.js --debug --name=providerdev --port=8000 --daemon",
+        "start": "node src/provider.js --debug --name=providerdev --port=8000 --daemon",
+        "identity": "node src/provider.js --debug --name=providerdev --port=8000 getidentity",
+        "broadcast": "node src/provider.js --debug --name=providerdev --port=8000 sendmessage",
+        "deals": "node src/provider.js --debug --name=providerdev --port=8000 deals",
+        "getbalance": "node src/provider.js --debug --name=providerdev --port=8000 getbalance",
+        "withdraw": "node src/provider.js --debug --name=providerdev --port=8000 withdraw",
+        "setup:minprice": "node src/provider.js --debug --name=providerdev --port=8000 setupminprice 0 && node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "setup:maxsize": "node src/provider.js --debug --name=providerdev --port=8000 setupmaxsize 20000000 && node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "setup:maxduration": "node src/provider.js --debug --name=providerdev --port=8000 setupmaxduration 30 && node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "setup:maxcollateral": "node src/provider.js --debug --name=providerdev --port=8000 setupmaxcollateral 100 && node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "setup:endpoint": "node src/provider.js --debug --name=providerdev --port=8000 setupendpoint https://provider.retr.dev && node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "getstrategy": "node src/provider.js --debug --name=providerdev --port=8000 getstrategy",
+        "storestrategy": "node src/provider.js --debug --name=providerdev --port=8000 storestrategy",
+        "subscribe": "node src/provider.js --debug --name=providerdev --port=8000 subscribe https://provider.retr.dev",
+        "pin": "node src/provider.js --debug --name=providerdev --port=8000 pin true",
+        "test:dealwoutproposal:uri": "node src/provider.js createdealwoutproposal --dealuri='ipfs://bafkreidlrmxrhd45dljz34f54txu7affj27xv2fmbqv7oumpnlptljpcuu' --duration=60 --collateral=1",
+        "test:dealwoutproposal:file": "node src/provider.js createdealwoutproposal --file=../shared/vps.txt --provider='0x2489c48090523f37028f1e42454b7DD04943d0Bf' --duration=60 --collateral=1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.24.0",
+        "body-parser": "^1.19.0",
+        "dotenv": "^10.0.0",
+        "ethers": "^5.6.2",
+        "express": "^4.17.1",
+        "minimist": "^1.2.6",
+        "public-ip": "^4.0.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.14"
+    }
+}

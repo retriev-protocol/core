@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker start retr-api
+docker exec -w /data/ retr-api yarn start
